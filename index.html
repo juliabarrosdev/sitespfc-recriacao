@@ -64,11 +64,18 @@
                         <a href="#">Notícias</a>
                     </div>
 
-                    <div class="header_menu_mobile">
+                    <div class="btn_abrir_menu_mobile" id="btn_menu">
                         <i id="burguer" class="ri-menu-2-line" onclick="clickMenu()"></i>
+                    </div>
 
-                        <menu id="items">
-                            <!-- <ul>
+                    <div class="header_menu_mobile" id="header_menu_mobile">
+
+                        <div class="btn_fechar_menu_mobile">
+                            <i class="ri-close-line"></i>
+                        </div>
+
+                        <nav id="items">
+                            <ul>
                                 <li>Calendário</li>
                                 <li>Vídeos</li>
                                 <li>Notícias</li>
@@ -76,9 +83,11 @@
                                 <li>Futebol Masculino Base</li>
                                 <li>Futebol Feminino</li>
                                 <li>Basquete</li>
-                            </ul> -->
-                        </menu>
+                            </ul>
+                        </nav>
                     </div>
+
+                    <div class="overlay_menu" id="overlay_menu"></div>
                 </div>
             </div>
         </section>
@@ -445,13 +454,21 @@
     </footer>
 
     <script>
-        function clickMenu() {
-            if (items.style.display == 'block') {
-                items.style.display = 'none'
-            } else {
-                items.style.display ='block'
-            }
-        }
+        let btnMenu = document.getElementById('btn_menu')
+        let menu = document.getElementById('header_menu_mobile')
+        let overlay = document.getElementById('overlay_menu')
+
+        btnMenu.addEventListener('click', ()=>{
+            menu.classList.add('abrir_menu')
+        } )
+
+        menu.addEventListener('click', ()=>{
+            menu.classList.remove('abrir_menu')
+        } )
+
+        overlay.addEventListener('click', ()=>{
+            menu.classList.remove('abrir_menu')
+        } )
     </script>
 </body>
 </html>
